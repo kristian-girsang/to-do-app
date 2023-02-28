@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/logo/origin-logo.png">
+    <title>ClearFocus - Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+    </style>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="bg-[#ececec]">
+        <!-- Menu Icon -->
+        <div class="fixed top-[40px] right-[100px] text-[#476072] text-[55px] cursor-pointer hover:text-[60px] duration-500"
+            onclick="Click(this)" id="close">
+            <ion-icon name="menu" onclick="Open(this)"></ion-icon>
+        </div>
+
+        <!-- Main Menu -->
+        <div class="fixed bg-[#222831] w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] overflow-hidden origin-top duration-500 font-bold text-center"
+            id="hamburger">
+            <ul>
+                <li
+                    class="my-5 hover:translate-y-[-5px] duration-300 hover:drop-shadow-[0_35px_35px_rgba(255,255,255)]">
+                    <a href="../index.html">Task to Clear</a></li>
+                <li
+                    class="my-5 hover:translate-y-[-5px] duration-300 hover:drop-shadow-[0_35px_35px_rgba(255,255,255)]">
+                    <a href="pages/notes.html">Notes</a></li>
+                <li
+                    class="my-5 hover:translate-y-[-5px] duration-500 hover:drop-shadow-[0_35px_35px_rgba(255,255,255)]">
+                    <a href="../pages/about.html">About</a></li>
+                <li
+                    class="my-5 hover:translate-y-[-5px] duration-500 hover:drop-shadow-[0_35px_35px_rgba(255,255,255)]">
+                    <a href="../pages/contact.html">Contact</a></li>
+            </ul>
+            <!-- Close button -->
+            <div
+                class="absolute top-[40px] right-[100px] text-[55px] cursor-pointer hover:text-[60px] duration-500">
+                <ion-icon name="close" onclick="Close(this)"></ion-icon>
+            </div>
+        </div>
+
+        <!-- Heading and Text -->
+        <div class="flex h-screen items-center m-auto max-w-[70ch]">
+            <div>
+                <h1 class=" items-center text-[50px] text-center m-auto p-auto tracking-[1px] font-bold">
+                    NOTES
+                </h1>
+                <h2 class="hidden text-[30px] text-center mb-[20px] tracking-[1px] font-bold">Hmm... it seems that you don't
+                    have any notes yet.</h2>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let ham = document.getElementById('hamburger')
+        let close = document.getElementById('close')
+
+        function Open() {
+            ham.classList.add('w-[100%]')
+        }
+
+        function Close() {
+            ham.classList.remove('w-[100%]')
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/9c487cdb57.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+</body>
+
+</html>

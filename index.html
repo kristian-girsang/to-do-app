@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/logo/origin-logo.png">
+    <title>ClearFocus - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-[#ececec]">
+        <!-- Menu Icon -->
+        <div class="fixed top-[40px] right-[100px] text-[#476072] text-[55px] cursor-pointer hover:text-[60px] duration-500"
+            onclick="Click(this)" id="close">
+            <ion-icon name="menu" onclick="Open(this)"></ion-icon>
+        </div>
+
+        <!-- Main Menu -->
+        <div class="fixed bg-[#222831] w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] overflow-hidden origin-top duration-500 font-bold text-center"
+            id="hamburger">
+            <ul>
+                <li
+                    class="my-5 hover:translate-y-[-5px] duration-300 hover:drop-shadow-[0_35px_35px_rgba(255,255,255)]">
+                    <a href="index.html">Task to Clear</a></li>
+                <li
+                    class="my-5 hover:translate-y-[-5px] duration-300 hover:drop-shadow-[0_35px_35px_rgba(255,255,255)]">
+                    <a href="pages/notes.html">Notes</a></li>
+                <li
+                    class="my-5 hover:translate-y-[-5px] duration-500 hover:drop-shadow-[0_35px_35px_rgba(255,255,255)]">
+                    <a href="pages/about.html">About</a></li>
+                <li
+                    class="my-5 hover:translate-y-[-5px] duration-500 hover:drop-shadow-[0_35px_35px_rgba(255,255,255)]">
+                    <a href="pages/contact.html">Contact</a></li>
+            </ul>
+            <!-- Close button -->
+            <div class="absolute top-[40px] right-[100px] text-[55px] cursor-pointer hover:text-[60px] duration-500">
+                <ion-icon name="close" onclick="Close(this)"></ion-icon>
+            </div>
+        </div>
+
+        <!-- Heading and Text -->
+        <div class="flex h-screen items-center m-auto max-w-[70ch]">
+            <div>
+                <h1 class="text-[50px] text-center mb-[20px] tracking-[1px] font-bold">
+                    <span class="text-[#ff8c32]" id="greeting"></span>
+                    <br>
+                    Any tasks you want to focus on/clear?
+                </h1>
+                <input type="text" id="input"
+                    class="text-[25px] font-bold w-full border-gray-300 rounded-lg px-4 py-2 mb-4"
+                    placeholder="Add a task...">
+                <button id="addBtn" class="bg-[#ff8c32] text-white font-bold py-2 px-4 rounded mb-4">Add</button>
+                <ul id="list" class="text-[30px] font-bold list-disc list-inside">
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let ham = document.getElementById('hamburger')
+        let close = document.getElementById('close')
+
+        function Open() {
+            ham.classList.add('w-[100%]')
+        }
+
+        function Close() {
+            ham.classList.remove('w-[100%]')
+        }
+    </script>
+
+    <script>
+        // Get the current time
+        function getTime() {
+            var today = new Date();
+            var hour = today.getHours();
+            var minute = today.getMinutes();
+            // var second = today.getSeconds();
+
+            // Add leading zero for minutes and seconds less than 10
+            minute = checkTime(minute);
+            // second = checkTime(second);
+
+            // Return the formatted time as a string
+            return hour + ":" + minute; // + ":" + second;
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        // Define the greetings based on the time of day
+        function getGreetings() {
+            var today = new Date();
+            var hour = today.getHours();
+            var greetings;
+
+            if (hour < 12) {
+                greetings = "Good morning!";
+            } else if (hour < 18) {
+                greetings = "Good afternoon!";
+            } else {
+                greetings = "Good evening!";
+            }
+
+            return greetings;
+        }
+
+        // Update the greeting message and time in the HTML
+        window.onload = function () {
+            document.getElementById("greeting").innerHTML = getGreetings();
+            document.getElementById("time").innerHTML = getTime();
+            setInterval(function () {
+                document.getElementById("time").innerHTML = getTime();
+            }, 1000);
+        };
+    </script>
+    <script src="https://kit.fontawesome.com/9c487cdb57.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
